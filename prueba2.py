@@ -98,7 +98,19 @@ print(punto.distancia())
 
 
 class Rectangulo:
-    def __init__():
+    base = x2-x1
+    altura = y2-y1
+    def __init__(self, base, altura, origen):
+        self.base = base
+        self.altura=altura
+        self.origen=origen
+    
+    def area(self):
+        return self.base * self.altura
+    def __str__(self):
         
+        return  (self.base, self.altura, self.origen)
 
 
+
+print(Rectangulo.area())
