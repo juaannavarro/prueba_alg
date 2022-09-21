@@ -1,80 +1,104 @@
+import random
+import sys
+import matplotlib.pyplot as plt
 import math
-class Punto:
-    def __init__(self, coordenada_X=0, coordenada_Y=0):
- 
-        self.coordenada_X = coordenada_X
-        self.coordenada_Y = coordenada_Y
-    def __str__(self):
-        return  "({}, {})".format(self.coordenada_X, self.coordenada_Y)
- 
-    def cuadrante(self):
-        if self.coordenada_X > 0 and self.coordenada_Y > 0:
-            print("{} pertenece al primer cuadrante".format(self))
-        elif self.coordenada_X < 0 and self.coordenada_Y > 0:
-            print("{} pertenece al segundo cuadrante".format(self))
-        elif self.coordenada_X < 0 and self.coordenada_Y < 0:
-            print("{} pertenece al tercer cuadrante".format(self))
-        elif self.coordenada_X > 0 and self.coordenada_Y < 0:
-            print("{} pertenece al cuarto cuadrante".format(self))
-        elif self.coordenada_X != 0 and self.coordenada_Y == 0:
-            print("{} se sitúa sobre el eje X".format(self))
-        elif self.coordenada_X == 0 and self.coordenada_Y != 0:
-            print("{} se sitúa sobre el eje Y".format(self))
-        else:
-            print("{} se encuentra sobre el origen".format(self))
- 
-    def vector(self, p):
-        print("El vector entre {} y {} es ({}, {})".format(
-            self, p, p.coordenada_X - self.coordenada_X, p.coordenada_Y - self.coordenada_Y) )
- 
-    def distancia(self, p):
-        d = math.sqrt ( (p.coordenada_X - self.coordenada_X)**2 + (p.coordenada_Y - self.coordenada_Y)**2 )
-        print("La distancia entre los puntos {} y {} es {}".format(
-            self, p, d))
- 
-class Rectangulo:
-    def __init__(self, pInicial=Punto(), pFinal=Punto()):
-        self.pInicial = pInicial
-        self.pFinal = pFinal
-    
-        self.vBase = abs(self.pFinal.x - self.pInicial.x)
-        self.vAltura = abs(self.pFinal.y - self.pInicial.y)
-        self.vArea = self.vBase * self.vAltura
- 
-    def base(self):
-        print("La base del rectángulo es {}".format( self.vBase ) )
- 
-    def altura(self):
-        print("La altura del rectángulo es {}".format( self.vAltura ) )
- 
-    def area(self):
-        print("El área del rectángulo es {}".format( self.vArea ) )
+import numpy as np
+x1 = 2
+x2 = 5
+x3 = -3
+x4 = 0
+y1 = 3
+y2 = 5
+y3 = -1
+y4 = 0
 
- 
- 
- 
-A = Punto(2,3)
-B = Punto(5,5)
-C = Punto(-3, -1)
-D = Punto(0,0)
- 
-A.cuadrante()
-C.cuadrante()
-D.cuadrante()
- 
-A.vector(B)
-B.vector(A)
- 
- 
- 
-A.distancia(B)
-B.distancia(A)
- 
-A.distancia(D)
-B.distancia(D)
-C.distancia(D)
- 
-R = Rectangulo(A, B)
-R.base()
-R.altura()
-R.area()       
+a = [x1,y1]
+b = [x2,y2]
+c = [x3,y3]
+d = [x4,y4]
+
+print("el punto a es: ", a)
+print("el punto b es: ", b)
+print("el punto c es: ", c)
+print("el punto d es: ", d)
+class punto:
+    def __init__(self,X,Y):
+        self.X = X
+        self.Y = Y
+
+    def cuadrante(cuadrante1,cuadrante2, cuadrante3, cuadrante4 ):
+        if (x1>0)and (y1>0):
+            print("a está en el primer cuadrante ")
+        elif (x1<0)and (y1>0):
+            print("a está en el segundo cuadrante ")
+        elif (x1<0)and (y1<0):
+            print("a está en el tercer cuadrante ")
+        elif  (x1>0)and (y1<0):
+            print("a está en el cuarto cuadrante ")
+        elif  (x1==0)and (y1!=0):
+            print("a está sobre el eje y ")
+        elif  (x1!=0)and (y1==0):
+            print("a está sobre el eje x ")
+        elif  (x1==0)and (y1==0):
+            print("a está en el origen de coordenadas ")   
+        if (x3>0)and (y3>0):
+            print("c está en el primer cuadrante ")
+        elif (x3<0)and (y3>0):
+            print("c está en el segundo cuadrante ")
+        elif (x3<0)and (y3<0):
+            print("c está en el tercer cuadrante ")
+        elif  (x3>0)and (y3<0):
+            print("c está en el cuarto cuadrante ")
+        elif  (x3==0)and (y3!=0):
+            print("c está sobre el eje y ")
+        elif  (x3!=0)and (y3==0):
+            print("c está sobre el eje x ")
+        elif  (x3==0)and (y3==0):
+            print("c está en el origen de coordenadas ")  
+        if (x4>0)and (y4>0):
+            print("d está en el primer cuadrante ")
+        elif (x4<0)and (y4>0):
+            print("d está en el segundo cuadrante ")
+        elif (x4<0)and (y4<0):
+            print("d está en el tercer cuadrante ")
+        elif  (x4>0)and (y4<0):
+            print("d está en el cuarto cuadrante ")
+        elif  (x4==0)and (y4!=0):
+            print("d está sobre el eje y ")
+        elif  (x4!=0)and (y4==0):
+            print("d está sobre el eje x ")
+        elif  (x4==0)and (y4==0):
+            print("d está en el origen de coordenadas ")      
+            return
+
+    def vector():
+        VectorAB = [x2-x1,y2-y1]
+        print("el vector AB es: ", VectorAB)
+        ax = plt.axes()
+        ax.arrow(x1,y1, x2,y2 , head_width=0.5, head_length=0.5)
+        plt.ylim(-10,10)
+        plt.xlim(-10,10)
+        #plt.show()
+        VectorBA = [x1-x2,y1-y2]
+        print("el vector BA es: ", VectorBA)
+        ax = plt.axes()
+        ax.arrow(x2,y2, x1,y1 , head_width=0.5, head_length=0.5)
+        plt.ylim(-10,10)
+        plt.xlim(-10,10)
+        #plt.show()
+        return
+
+    def distancia():
+        d = math.sqrt((x2-x1)**2+(y2-y1)**2)
+        print("la distancia AB es igual que BA y es:  ",d)
+        return
+print(punto.cuadrante("cuadrante1","cuadrante2","cuadrante3", "cuadrante4"))
+print(punto.vector())
+print(punto.distancia())
+
+
+class Rectangulo:
+    def __init__():
+        
+
+
